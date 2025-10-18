@@ -182,7 +182,7 @@ h1 {
 }
 
 .prize-info {
-    position: absolute;
+    position: none;
     bottom: 30px;
     right: 30px;
     background-color: rgba(255, 255, 255, 0.1);
@@ -258,3 +258,4 @@ h1 {
     color: #CC0000;
     font-weight: bold;
 }
+
