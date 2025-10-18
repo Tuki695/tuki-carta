@@ -16,8 +16,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh; /* Para que ocupe toda la altura de la pantalla */
-    overflow: hidden; /* Evitar scroll si el patrón de fondo es grande */
+    min-height: 100vh;
+    overflow: hidden;
     position: relative;
 }
 
@@ -29,19 +29,19 @@ body {
     width: 100%;
     height: 100%;
     background-image: url('tuki-burger-logo.png'); /* Usa tu logo aquí */
-    background-repeat: repeat; /* Repetir el logo */
-    background-size: 150px; /* Tamaño del logo repetido, ajusta si es necesario */
-    opacity: 0.1; /* Transparencia para que sea un fondo sutil */
-    z-index: 0; /* Asegura que esté detrás de todo el contenido del juego */
+    background-repeat: repeat;
+    background-size: 150px;
+    opacity: 0.1;
+    z-index: 0;
 }
 
 .game-container {
-    background-color: rgba(0, 0, 0, 0.8); /* Un poco transparente para ver el fondo */
+    background-color: rgba(0, 0, 0, 0.8);
     padding: 30px 40px;
     border-radius: 15px;
     text-align: center;
-    box-shadow: 0 0 25px rgba(255, 140, 0, 0.7); /* Sombra naranja */
-    z-index: 1; /* Asegura que el contenedor del juego esté por encima del fondo */
+    box-shadow: 0 0 25px rgba(255, 140, 0, 0.7);
+    z-index: 1;
     max-width: 900px;
     width: 90%;
     position: relative;
@@ -67,14 +67,14 @@ h1 {
 .cards-container {
     display: flex;
     justify-content: center;
-    gap: 30px; /* Espacio entre las cartas */
+    gap: 30px;
     margin-bottom: 30px;
-    perspective: 1000px; /* Para la animación 3D de volteo */
+    perspective: 1000px;
 }
 
 .card {
-    width: 180px; /* Ancho de la carta */
-    height: 250px; /* Alto de la carta */
+    width: 180px;
+    height: 250px;
     background-color: var(--card-bg-orange);
     border: 5px solid var(--card-border);
     border-radius: 15px;
@@ -82,11 +82,11 @@ h1 {
     position: relative;
     transition: transform 0.6s ease;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-    transform-style: preserve-3d; /* Permite que los hijos de la carta tengan 3D */
+    transform-style: preserve-3d;
 }
 
 .card:hover {
-    transform: translateY(-10px) scale(1.03); /* Efecto al pasar el mouse */
+    transform: translateY(-10px) scale(1.03);
 }
 
 .card.flipped .card-inner {
@@ -105,16 +105,16 @@ h1 {
     position: absolute;
     width: 100%;
     height: 100%;
-    backface-visibility: hidden; /* Oculta la cara trasera */
+    backface-visibility: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 10px; /* Bordes redondeados de la cara interna */
-    overflow: hidden; /* Para que la imagen no se salga */
+    border-radius: 10px;
+    overflow: hidden;
 }
 
 .card-face img {
-    max-width: 80%; /* Logo dentro de la carta */
+    max-width: 80%;
     max-height: 80%;
     object-fit: contain;
 }
@@ -125,9 +125,9 @@ h1 {
 }
 
 .card-front {
-    background-color: var(--text-white); /* Fondo de la cara frontal (donde se revela el premio) */
+    background-color: var(--text-white);
     transform: rotateY(180deg);
-    color: var(--text-black); /* Color del texto del frente */
+    color: var(--text-black);
     font-size: 1.8em;
     font-weight: bold;
     flex-direction: column;
@@ -135,14 +135,14 @@ h1 {
     box-sizing: border-box;
 }
 
-/* Letras "A" en las esquinas de la carta (como se ve en el diseño) */
+/* Letras "A" en las esquinas de la carta */
 .card-face.card-back::before,
 .card-face.card-back::after {
     content: 'A';
     position: absolute;
     font-size: 2em;
     font-weight: bold;
-    color: rgba(255, 255, 255, 0.7); /* Un color que se vea en el naranja */
+    color: rgba(255, 255, 255, 0.7);
 }
 .card-face.card-back::before {
     top: 10px;
@@ -177,12 +177,12 @@ h1 {
 }
 
 #reset-button:hover {
-    background-color: #FF6600; /* Un naranja un poco más oscuro */
+    background-color: #FF6600;
     transform: translateY(-2px);
 }
 
 .prize-info {
-    position: absolute; /* Para colocarlo en la esquina inferior derecha */
+    position: absolute;
     bottom: 30px;
     right: 30px;
     background-color: rgba(255, 255, 255, 0.1);
@@ -218,18 +218,18 @@ h1 {
     width: 40px;
     height: 40px;
     object-fit: contain;
-    background-color: white; /* Fondo blanco para logos */
+    background-color: white;
     border-radius: 5px;
     padding: 5px;
 }
 .prize-item:last-child img {
-    background-color: transparent; /* El logo de Tuki Burger no necesita fondo blanco si ya es blanco */
+    background-color: transparent;
 }
 
 
 /* Estilos para cuando se revela un premio */
 .card-front.winner-coke img {
-    width: 60px; /* Tamaño de la Coca Cola en la carta ganadora */
+    width: 60px;
     height: auto;
     margin-bottom: 10px;
 }
@@ -241,12 +241,12 @@ h1 {
 }
 
 .card-front.winner-discount img {
-    width: 70px; /* Tamaño del logo de Tuki en la carta ganadora */
+    width: 70px;
     height: auto;
     margin-bottom: 10px;
 }
 .card-front.winner-discount::after {
-    content: '-20% DESC.';
+    content: '-10% DESC.'; /* <--- CÓDIGO ACTUALIZADO AL 10% */
     font-size: 1.2em;
     color: var(--text-black);
     margin-top: 5px;
@@ -255,6 +255,6 @@ h1 {
 .card-front.loser::after {
     content: '¡FALLASTE!';
     font-size: 1.5em;
-    color: #CC0000; /* Rojo para fallar */
+    color: #CC0000;
     font-weight: bold;
 }
