@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 gameEnded = true;
                 displayPrizeOnCard(clickedCard, clickedCard.dataset.prize);
                 setTimeout(() => {
-                    alert(`¡Felicidades! Has ganado un/a ${clickedCard.dataset.prize === 'coke' ? 'Coca Cola' : '20% de descuento en una burger'}!`);
+                    alert(`¡Felicidades! Has ganado un/a ${clickedCard.dataset.prize === 'coke' ? 'Coca Cola' : '10% de descuento en una burger'}!`);
                     showResetButton();
                 }, 500);
 
@@ -121,3 +121,4 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeGame();
 
 });
+
