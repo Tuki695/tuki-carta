@@ -119,4 +119,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Inicializar el juego al cargar la página
     initializeGame();
+
 });
