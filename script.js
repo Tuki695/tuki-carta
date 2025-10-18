@@ -5,34 +5,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let opportunities = 2;
     let gameEnded = false;
-    let selectedPrizeCard = null; // Para almacenar cuál carta es la del premio
-    let prizes = ['coke', 'discount']; // Tipos de premios posibles
+    let selectedPrizeCard = null; 
+    let prizes = ['coke', 'discount']; // 'coke' (Coca Cola) o 'discount' (10% de descuento)
 
     function initializeGame() {
         opportunities = 2;
         gameEnded = false;
         opportunitiesCountSpan.textContent = opportunities;
-        resetButton.style.display = 'none'; // Oculta el botón de reiniciar al inicio
+        resetButton.style.display = 'none';
 
         // Reiniciar todas las cartas a su estado inicial
         cards.forEach(card => {
             card.classList.remove('flipped');
-            card.style.pointerEvents = 'auto'; // Habilitar clics
-            card.querySelector('.card-front').innerHTML = '<img src="tuki-burger-logo.png" alt="Logo Tuki Burger">'; // Restaurar logo
-            card.querySelector('.card-front').classList.remove('winner-coke', 'winner-discount', 'loser'); // Eliminar clases de premio/fallo
+            card.style.pointerEvents = 'auto'; 
+            card.querySelector('.card-front').innerHTML = '<img src="tuki-burger-logo.png" alt="Logo Tuki Burger">'; 
+            card.querySelector('.card-front').classList.remove('winner-coke', 'winner-discount', 'loser'); 
         });
 
         // Asignar aleatoriamente la carta del premio
-        // Shuffle the prizes array and pick the first one for the winning card
         const shuffledPrizes = prizes.sort(() => Math.random() - 0.5);
-        const winningPrizeType = shuffledPrizes[0]; // 'coke' or 'discount'
+        const winningPrizeType = shuffledPrizes[0]; 
 
-        // Asegurarse de que solo una carta tenga el premio
         let randomIndex = Math.floor(Math.random() * cards.length);
         cards.forEach((card, index) => {
             if (index === randomIndex) {
                 card.dataset.prize = winningPrizeType; // Asigna el tipo de premio a la carta ganadora
-                selectedPrizeCard = card; // Guarda la referencia a la carta ganadora
+                selectedPrizeCard = card; 
             } else {
                 card.dataset.prize = 'false'; // Las demás son perdedoras
             }
@@ -40,29 +38,29 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function handleCardClick(event) {
-        if (gameEnded) return; // Si el juego terminó, no hacer nada
+        if (gameEnded) return;
 
         const clickedCard = event.currentTarget;
 
         if (clickedCard.classList.contains('flipped')) {
-            return; // No hacer nada si la carta ya está volteada
+            return;
         }
 
         opportunities--;
         opportunitiesCountSpan.textContent = opportunities;
 
-        clickedCard.classList.add('flipped'); // Voltear la carta
+        clickedCard.classList.add('flipped');
 
-        // Deshabilitar clics en todas las cartas temporalmente
-        cards.forEach(card => card.style.pointerEvents = 'none');
+        cards.forEach(card => card.style.pointerEvents = 'none'); // Deshabilitar clics
 
-        setTimeout(() => { // Esperar un momento antes de permitir otro clic o terminar el juego
+        setTimeout(() => { 
             if (clickedCard.dataset.prize !== 'false') {
                 // ¡Ha ganado!
                 gameEnded = true;
                 displayPrizeOnCard(clickedCard, clickedCard.dataset.prize);
                 setTimeout(() => {
-                    alert(`¡Felicidades! Has ganado un/a ${clickedCard.dataset.prize === 'coke' ? 'Coca Cola' : '10% de descuento en una burger'}!`);
+                    // ¡TEXTO ACTUALIZADO CON EL 10%!
+                    alert(`¡Felicidades! Has ganado un/a ${clickedCard.dataset.prize === 'coke' ? 'Coca Cola' : '10% de descuento en una burger'}!`); 
                     showResetButton();
                 }, 500);
 
@@ -76,31 +74,26 @@ document.addEventListener('DOMContentLoaded', () => {
                         showResetButton();
                     }, 500);
                 } else {
-                    // Si aún quedan oportunidades, habilitar clics de nuevo
                     cards.forEach(card => card.style.pointerEvents = 'auto');
                 }
             }
-            // Después de procesar el clic, deshabilitar la carta que ya fue volteada
             clickedCard.style.pointerEvents = 'none';
 
-        }, 600); // Duración de la animación de volteo
+        }, 600);
     }
 
     function displayPrizeOnCard(card, prizeType) {
         const frontFace = card.querySelector('.card-front');
-        frontFace.innerHTML = ''; // Limpiar el contenido existente
+        frontFace.innerHTML = ''; 
 
         if (prizeType === 'coke') {
             frontFace.classList.add('winner-coke');
             frontFace.innerHTML = '<img src="coca-cola.png" alt="Coca Cola">';
-            // El contenido de '::after' se maneja por CSS
         } else if (prizeType === 'discount') {
             frontFace.classList.add('winner-discount');
             frontFace.innerHTML = '<img src="tuki-burger-logo.png" alt="Logo Tuki Burger">';
-            // El contenido de '::after' se maneja por CSS
         } else { // 'loser'
             frontFace.classList.add('loser');
-            // El contenido de '::after' se maneja por CSS
         }
     }
 
@@ -119,6 +112,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Inicializar el juego al cargar la página
     initializeGame();
-
 });
-
