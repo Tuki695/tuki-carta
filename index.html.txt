@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego Tuki Burger - Adivina la Carta</title>
+    <link rel="stylesheet" href="style.css">
+    </head>
+<body>
+    <div class="background-pattern"></div> <div class="game-container">
+        <h1>¡ADIVINA LA CARTA!</h1>
+        <p class="opportunities">OPORTUNIDADES: <span id="opportunities-count">2</span></p>
+
+        <div class="cards-container">
+            <div class="card" data-prize="false">
+                <div class="card-inner">
+                    <div class="card-face card-back">
+                        <img src="tuki-burger-logo.png" alt="Logo Tuki Burger">
+                    </div>
+                    <div class="card-face card-front">
+                        <img src="tuki-burger-logo.png" alt="Logo Tuki Burger">
+                        </div>
+                </div>
+            </div>
+            <div class="card" data-prize="true">
+                <div class="card-inner">
+                    <div class="card-face card-back">
+                        <img src="tuki-burger-logo.png" alt="Logo Tuki Burger">
+                    </div>
+                    <div class="card-face card-front">
+                        <img src="tuki-burger-logo.png" alt="Logo Tuki Burger">
+                    </div>
+                </div>
+            </div>
+            <div class="card" data-prize="false">
+                <div class="card-inner">
+                    <div class="card-face card-back">
+                        <img src="tuki-burger-logo.png" alt="Logo Tuki Burger">
+                    </div>
+                    <div class="card-face card-front">
+                        <img src="tuki-burger-logo.png" alt="Logo Tuki Burger">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <p class="instruction">ELIGE UNA CARTA PARA GANAR:</p>
+
+        <button id="reset-button">REINICIAR JUEGO</button>
+
+        <div class="prize-info">
+            <h2>PREMIO:</h2>
+            <div class="prize-options">
+                <div class="prize-item">
+                    <img src="coca-cola.png" alt="Coca Cola">
+                    <span>COCA COLA</span>
+                </div>
+                <div class="prize-item">
+                    <img src="tuki-burger-logo.png" alt="Logo Tuki Burger">
+                    <span>-20% DESC. EN CUALQUIER BURGER</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
